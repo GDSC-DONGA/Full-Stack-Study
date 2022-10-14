@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2[class] {
+        font-size: 30px;
+      }
+      [target] {
+        color: green;
+      }
+      h2[class='naver-title'] {
+        color: green;
+      }
+      a[href*='www'] {
+        text-decoration: none;
+      }
+      h2[class^='google'] {
+        color: blue;
+      }
+      a[class$='facebook.com'] {
+        color: red;
+      }
+      h2[class~='title'] {
+        color: blue;
+        font-weight: 300;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="naver-title">네이버</h2>
+    <a href="http://naver.com">네이버</a>
+    <h2 class="google-title">구글</h2>
+    <a href="http://google.com" target="_blank">구글</a>
+    <h2 class="facebook-title">페이스북</h2>
+    <a href="http://facebook.com">페이스북</a>
+    <h2>짐코딩</h2>
+    <h2 class="text title gymcoding">감사합니다</h2>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .shape {
+        margin: 0 auto;
+        margin-top: 80px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .animation1 {
+        animation-name: shape-color;
+        animation-duration: 3s;
+        animation-iteration-count: 3;
+      }
+      @keyframes shape-color {
+        0% {
+          background-color: red;
+        }
+        50% {
+          background-color: yellow;
+        }
+        100% {
+          background-color: blue;
+        }
+      }
+
+      .animation2 {
+        animation: circle 2s infinite;
+      }
+      @keyframes circle {
+        0% {
+          border-radius: 0;
+        }
+        50% {
+          border-radius: 50%;
+        }
+        100% {
+          border-radius: 0;
+        }
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .circle {
+        width: 20px;
+        height: 20px;
+        background-color: blue;
+        border-radius: 50%;
+        position: absolute;
+        animation: move-the-circle 2s infinite;
+      }
+      .circle:nth-child(2) {
+        left: 30px;
+        animation-delay: 0.1s;
+      }
+      .circle:nth-child(3) {
+        left: 60px;
+        animation-delay: 0.2s;
+      }
+      .circle:nth-child(4) {
+        left: 90px;
+        animation-delay: 0.3s;
+      }
+      .circle:nth-child(5) {
+        left: 120px;
+        animation-delay: 0.4s;
+      }
+      .circle:nth-child(6) {
+        left: 150px;
+        animation-delay: 0.5s;
+      }
+      .circle:nth-child(7) {
+        left: 180px;
+        animation-delay: 0.6s;
+      }
+      .circle:nth-child(8) {
+        left: 210px;
+        animation-delay: 0.7s;
+      }
+
+      @keyframes move-the-circle {
+        0% {
+          transform: translate(0, 0) scale(1);
+          background-color: blue;
+        }
+        50% {
+          transform: translate(0, 50px) scale(0.5);
+          background-color: red;
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+          background-color: blue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="shape animation1"></div>
+      <div class="shape animation2"></div>
+      <hr />
+      <div class="animation-wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </main>
+  </body>
+</html>
