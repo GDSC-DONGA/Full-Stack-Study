@@ -28,9 +28,34 @@
 2022.10.18
 # HTML 기본태그
 ### 글꼴 태그
-- `<h1>` ~ `<h6>` Headine
-- `<p>` Paragraph 문단표시
-- `<hr>` Horizontal Rule 가로로 선 긋기
-- `<br>` Break 개행
-- `<i>` `<em>`  *이텔릭체로 강조*할 때 사용
+- `<h1>` ~ `<h6>` Headine / 제목
+- `<p>` Paragraph / 문단표시
+- `<hr>` Horizontal Rule / 가로로 선 긋기
+- `<br>` Break / 개행
+- `<i>` `<em>` *이텔릭체로 강조*할 때 사용
 - `<b>` `<strong>` Bold **진하게 표시**할 때
+
+### 목록 태그
+- `<ol>` Ordered List / **순서가 있는 목록**
+- `<ul>` Unordered Lists / **순서가 없는 목록**
+- `<li>` Listed Item 목록하위 항목으로 사용, `<ul>`태그 또는 `<ol>`태그의 하위에 위치한다.
+- `<dl>` Definition List / **사전처럼 용어를 설명하는 목록**
+- `<dt>` Definition Term / **정의되는 용어의 제목**
+- `<dd>` Definition Description / **용어를 설명**
+
+### 표 태그
+- `<table>` 표를 만드는 태그
+- `<caption>` 표의 제목
+- `<tr>` 표의 행을 의미하는 태그(자식으로 `<th>`태그나 `<td>`태그가 반드시 있어야 함)
+- `<th>` 표의 **제목 열**을 의미
+- `<td>`  표의 **일반 열**을 의미
+### Table 그룹 관련 태그
+- `<colgroup>` 열을 그룹으로 묶을 수 있도록 해주는 태그
+- `<col>` 
+ `<colgroup>`태그의 자식으로 열 단위를 나눌 수 있다.
+  `span` 속성을 사용하여 열을 그룹으로 묶을지 설정. 예) <col span="3"> → 세 개의 열을 그룹으로 묶음
+- `<thead>` 표의 제목 열들을 묶는 그룹 태그
+- `<tbody>` 표의 일반적인 데이터들을 묶는 그룹태그
+- `<tfoot>` 표의 하단 영역을 묶는 그룹태그
+    
+    
