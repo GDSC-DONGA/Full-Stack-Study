@@ -208,3 +208,145 @@ http 프로토콜로 시작해서 전체 경로를 입력함
     - 미디어 파일 일부를 가리키는 미디어 프래그먼트
     - `tel:` URL을 사용하는 전화번호
     - `mailto:` URL을 사용하는 이메일 주소
+    
+    
+## Form
+
+### Input태그
+
+### text
+
+`<input>` 태그의 기본값으로 한줄의 텍스트를 입력 받습니다.
+
+```html
+<input type="text" id="name">
+```
+
+HTML5 에서는 text 필드가 데이터 용도에 맞게 사용할 수 있도록 다양한 타입이 추가되었음
+
+- `text` - 일반적인 텍스트를 받기위해 사용
+- `password` - 비밀번호를 받기위해 사용
+- `email` - email 데이터를 받기위해 사용 (이메일 유효성 검증)
+- `tel` - 전화번호를 받기위해 사용 (모바일 접근시 키패드가 다름)
+
+### label
+
+`<label>` 레이블 태그는 입력받는 필드를 설명할 때 사용합니다. `웹접근성 준수`
+
+사용 방법은 `<label>` 태그 하위에 `<input>` 태그를 위치시킬 수 있고 `id` 와 `for` 속성을 사용하여 `<input>` 태그와 연결지을 수 있습니다.
+
+```html
+<!-- label 태그 하위에 놓는 법 -->
+<label>
+	이름 : 
+	<input type="text" id="name">
+</label>
+
+<!-- for와 id속성을 사용하여 label 태그와 연결지음 / for값과 id값 일치 -->
+<label for="name">이름 : </label>
+<input type="text" id="name">
+```
+
+### number
+
+`<input type="number">` 속성은 숫자를 입력하기 위한 필드입니다.
+
+- `min` 속성으로 최소값을 지정
+- `max` 속성으로 최대값을 지정
+- `value` 속성은 이 요소의 현재 값 이며, 초기에 value 값이 화면에 표시됨
+
+```html
+<input type="number" min="0" max="10" value="0">
+```
+
+### range
+
+슬라이드 막대를 움직여서 값을 입력받을 수 있습니다.
+
+- `min` 속성으로 최소값을 지정
+- `max` 속성으로 최대값을 지정
+- `value` 속성은 이 요소의 현재 값 이며, 초기에 value 값이 화면에 표시됨
+
+```html
+<input type="range" min="0" max="10" value="0">f
+```
+
+### 날짜/시간
+
+`date` `month` `week` `time` `datetime` `datetime-local` 값을 사용하여 날짜와 시간 데이터를 입력 받을 수 있습니다.
+
+- `min` 속성으로 최소 날짜를 지정 합니다.
+- `max` 속성으로 최대 날짜를 지정 합니다.
+
+### hidden
+
+눈에 보이지는 않지만 서버로 값을 전송하려고 할 때 사용하는 요소.
+
+예) 가입시간, 가입경로 등
+
+```html
+<input type="hidden" name="source" value="google">
+```
+
+### file
+
+파일을 선택할 수 있는 필드입니다. `accept` 속성을 사용하면 허용하는 파일 유형을 지정할 수 있습니다.
+
+```html
+<input type="file">
+```
+
+### image
+
+제출 버튼으로 사용할 이미지 버튼이라고 보시면 될 것 같습니다.
+
+```html
+<input type="image" src="버튼으로 사용할 이미지 경로">
+```
+
+## Form 데이터 태그 속성
+
+
+- `required`
+    
+    입력값이 필수라는 것을 명시할 수 있습니다.
+    
+- `readonly`
+    
+    필드를 읽기전용으로 필드로 만들 수 있습니다. / disable과 달리 서버로 값은 전송 됨
+    
+- `disabled`
+    
+    비활성화 시킬 수 있으며 해당 필드는 서버로 전송되지 않습니다. / 흐릿하게 표시 됨
+    
+- `autofocus`
+    
+    초기에 해당 필드에 커서를 위치 시킬 수 있음
+    
+- `placeholder`
+    
+    입력 필드가 비어있을 때 해당 입력값의 설명 또는 가이드 문구를 삽입할 수 있음
+    
+
+## fieldset
+
+양식의 여러 컨트롤과 레이블(<label>)을 묶을 때 사용
+
+### legend
+
+ 요소는 부모 `<fieldset>` 콘텐츠의 설명을 나타냄
+ 
+ ## Textarea
+
+`<textarea>`는 여려줄의 데이터를 입력받을 수 있다.
+
+```html
+<textarea id="story" name="story" rows="5" cols="33">
+It was a dark and stormy night...
+</textarea>
+```
+
+**속성**
+
+- `rows` - 화면에 표시되는 행수를 지정합니다.
+- `cols` - 화면에 표시되는 컬럼 수를 지정합니다.
