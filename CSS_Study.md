@@ -221,17 +221,65 @@ Box Sizing 속성은 HTML요소의 너비와 높이를 **계산하는 방법**�
 ### `none`  요소를 보이지 않게 설정
 
 ### `block` 기본적으로 가로 영역을 모두 채움, block 요소 다음에 등장하는 태그는 줄바꿈이 된 것처럼 보임.
-`width`, `height` 속성을 지정 할 수 있습니다.
+`width`, `height` 속성을 지정 할 수 있다..
     
-`div` `p`  `h1~h6` 태그 등이 이에 해당됩니다.
+`div` `p`  `h1~h6` 태그 등이 이에 해당됨
 
 ### `inline` 컨텐츠만큼 영역을 차지
 
-block 과 달리 줄 바꿈이 되지 않고, `width`와 `height`를 지정 할 수 없습니다.
+block 과 달리 줄 바꿈이 되지 않고, `width`와 `height`를 지정 할 수 없다.
 
 ### `inline-block`  **navbar**만들 때 많이 
 
 inline 처럼 컨텐츠 만큼 영역을 차지하여 가로로 배치되지만
 
-block 처럼 내부 속성인 width, height 등과 같은 값을 변경할 수 있습니다.
+block 처럼 내부 속성인 width, height 등과 같은 값을 변경할 수 있다.
 
+## float 속성
+
+`float` 의 사전적인 의미는 '뜨다"라는 뜻
+인접한 텍스트 또는 인라인 요소가 그 주위를 자연스럽게 감싸게 함
+
+자주 사용하는 `float` 속성 값은
+
+- `none` - 기본값으로 요소를 띄우지 않음
+- `left` - 왼쪽에 띄움
+- `right` - 오른쪽에 띄움
+
+### clear 속성
+
+clear는 취소하다 라는 뜻으로 `float: left;` 혹은 `float: right;` 값을 취소
+
+## position 속성
+
+
+`position` 속성은 HTML 요소를 배치하는 방법을 지정
+
+- `static` (기본값)
+    
+    static은 요소가 HTML 문서에서 일반적인 흐름을 따라 배치가 되게하며, 기본값이다.
+    
+- `relative`
+    
+    `static`과 마찬가지로 요소가 문서의 일반적인 흐름에 따라 배치되게 함. static과 차이점은 요소가 자신의 `static` 위치에서 `top` `right` `bottom` `left`와 같은 속성에 의한 상대적인 위치에 배치된다
+    
+- `absolute`
+    
+    `absolute`는 요소가 문서의 일반적인 흐름을 따르지 않게한다. `absolute`는 **position: static 속성을 가지고 있지 않은 부모를 기준**으로 움직입니다. 만약 부모 중에 포지션이 relative, absolute, fixed인 태그가 없다면 가장 위의 태그(body)가 기준이 됩니다.
+    
+- `fixed`
+    
+    `fixed` 역시 `absolute`와 마찬가지로 요소가 문서의 일반적인 흐름에서 제거됨. 대신, 스크린의 뷰포트(viewport)를 기준으로 한 위치에 배치. 즉, 스크롤되어도 움직이지 않는 고정된 자리를 갖게 됨
+    
+- `sticky`
+    
+    `sticky`는 요소가 HTML 문서안에서 `static`과 같이 일반적인 흐름에 따라가다가 스크롤 위치가 임계점에 이르면 `fixed`와 같이 박스를 화면에 고정할 수 있는 속성
+    top 옵션만 적용된다. right left bottom은 안 됨
+    
+### 관련속성
+
+- `z-index`
+    
+    어느 HTML 요소가 앞으로 나오고, 뒤에 나올지 배치 순서를 결정하는 속성
+    z-index는 position (relative, absolute, fixed)속성이 적용된 요소에서만 작동함.
+    수가 높을 수록 앞에 나온다.
