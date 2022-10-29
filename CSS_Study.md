@@ -166,7 +166,7 @@ id 속성에 맞는 요소를 선택합니다. id 선택자는 웹 문서에서 
 
 HTML 요소의 박스 모델은 Content, Padding, Border, Margin으로 구성
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/796323d6-0633-4197-82a4-c7cf909a7e11/HTML_CSS.001.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/796323d6-0633-4197-82a4-c7cf909a7e11/HTML_CSS.001.jpeg)
+![image](https://user-images.githubusercontent.com/97269799/198814959-cb760c55-8eed-425e-ad62-2824c28953ca.png
 
 - `Content` - 텍스트나 이미지가 들어있는 HTML 요소의 실직적인 내용
 - `Padding` - Content와 Border사이의 영역으로 쉽게 말해 안쪽 여백
