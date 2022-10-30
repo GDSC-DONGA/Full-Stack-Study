@@ -283,3 +283,48 @@ clear는 취소하다 라는 뜻으로 `float: left;` 혹은 `float: right;` 값
     어느 HTML 요소가 앞으로 나오고, 뒤에 나올지 배치 순서를 결정하는 속성
     z-index는 position (relative, absolute, fixed)속성이 적용된 요소에서만 작동함.
     수가 높을 수록 앞에 나온다.
+
+## 배경 이미지 스타일
+
+### `background-color`
+
+HTML 요소의 배경 색을 지정합니다.
+
+```css
+/* 키워드 값 */
+background-color: red;
+```
+
+### `background-image`
+    HTML요소에 배경 이미지를 한 개 또는 여러 개를 지정할 수 있습니다.
+
+```css
+background-image: url("../../media/examples/lizard.png");
+background-image: url("../../media/examples/star.png"),
+                url("../../media/examples/lizard.png");
+```
+
+### `background-attachment`
+
+배경 이미지를 뷰포트 내에서 고정할지 말지를 지정하는 속성입니다.
+
+- scroll : 선택한 요소와 같이 움직입니다. 내용을 스크롤하면 배경 이미지는 스크롤되지 않습니다. (기본값)
+- fixed : 움직이지 않습니다.
+- local : 선택한 요소와 같이 움직입니다. 내용을 스크롤하면 배경 이미지도 스크롤됩니다.
+    
+### `background-size`
+
+요소 배경 이미지의 크기를 설정합니다. 그대로 두거나, 늘리고 줄이거나, 공간에 맞출 수 있습니다.
+
+- `contain` - 이미지가 잘리거나 찌그러지지 않는 한도 내에서 제일 크게 설정.
+- `cover` - 이미지가 찌그러지지 않는 한도 내에서 제일 크게 설정. 이미지의 가로세로비가 요소와 다르다면 이미지를 세로 또는 가로방향으로 잘라내어 빈 공간이 생기지 않도록 설정합니다. **(많이 사용함)**
+    
+## 그라데이션 이란
+
+---
+
+그라데이션은 두 가지 이상의 색상이 연결되면서 자연스럽게 보여주는 것을 말합니다. 그라데이션은 크게 선형 그라데이션과 원형 그라데이션이 있습니다.
+
+### 선형 그라데이션
+
+`linear-gradient()` 함수는 두 개 이상의 색상이 직선을 따라 점진적으로 변화하는 것을 말합니다.
