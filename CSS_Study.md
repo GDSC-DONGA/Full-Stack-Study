@@ -560,3 +560,26 @@ flexbox는 뷰포트나 요소의 크기가 불명확하거나 동적으로 변�
 
 flex item은 주축(main axis)에 따라 **정렬**된다.
 ![image](https://user-images.githubusercontent.com/97269799/198953179-1ccbac23-3bc8-4893-8697-589b0b0d41ec.png)
+	
+### flex container
+
+전체적인 정렬이나 흐름에 관련된 속성은 flex container에 정의한다.
+
+- `display`
+- `flex-direction`
+- `flex-wrap`
+- `flex-flow`
+- `justify-content` : flex container의 main axis를 기준으로 flex item을 수평 정렬한다.
+- `align-items`  : flex item을 flex container의 수직 방향(cross axis)으로 정렬한다
+- `align-content` : flex container의 cross axis를 기준으로 flex item을 수직 정렬한다.
+
+### flex item
+
+자식 요소의 크기나 순서에 관련된 속성은 flex item에 정의한다.
+
+- `flex`
+- `flex-grow`  : flex item의 너비에 대한 확대 인자를 지정한다
+- `flex-shrink`  : flex item의 너비에 대한 축소 인자를 지정한다
+- `flex-basis`
+- `order`  : flex item의 배치 순서를 지정한다(자주사용 X)
+- `align-self`  : 개별 flex item을 정렬한다
