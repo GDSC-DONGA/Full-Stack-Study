@@ -360,3 +360,174 @@ background-image: url("../../media/examples/star.png"),
     - `:focus` - 양식의 입력 칸 등 포커스를 받은 요소를 나타냅니다. 보통 사용자가 요소를 클릭 또는 탭하거나, 키보드 `Tab` 키로 선택했을 때 발동합니다.
     - `:nth-child` - 형제 사이에서의 순서에 따라 요소를 선택합니다.
     - `:not(selector)` - `not(selector)` 안에 포함된 요소를 제외시키겠다는 뜻입니다.
+    
+- 대표적인 CSS 가상 요소
+    - `::first-letter` - 텍스트의 첫 글자만을 선택합니다. 단, 블록 레벨 요소(block-level-element)에만 사용할 수 있습니다.
+    - `::first-line` - 텍스트의 첫 라인만을 선택합니다. 단, 블록 레벨 요소(block-level-element)에만 사용할 수 있습니다.
+    - `::before` - 특정 요소의 내용(content) 부분 바로 앞에 다른 요소를 삽입할 때 사용합니다.
+    - `::after` - 특정 요소의 내용(content) 부분 바로 뒤에 다른 요소를 삽입할 때 사용합니다.
+    - `::selection` - 해당 요소에서 사용자가 선택한 부분만을 선택할 때 사용합니다. (드래그 시)
+
+    
+## transform
+
+
+**`transform`** 속성은 HTML 요소를 **회전**, **크기 조절**, **기울이기**, **이동 효과**를 나타낼 때 사용합니다.
+    
+    
+사용법은 `transform` 속성 값으로 특수한 함수를 넣어주면 됩니다.
+
+```css
+/* x축(가로)으로 20px 이동 */
+transform: translateX(20px);
+
+/* y축(세로)으로 40px 이동 */
+transform: translateY(40px);
+
+/* x축(가로)으로 20px, y축(세로)으로 40px 이동 */
+transform: translate(20px, 40px);
+```
+    
+## Transition
+
+transition의 사전적 의미는 "전환"이라는 뜻
+    
+    
+### Transition 속성
+
+- `transition-property`
+    
+    어떤 속성에 트랜지션 효과를 줄 것인지 지정합니다.
+    
+    - `transitino-property: <속성1>, <속성2>;` 와 같이 지정할 수 있습니다.
+    - `all` : 모든 속성을 지정합니다. (all은 생략 가능합니다.)
+    - `none` : 아무것도 지정하지 않습니다.
+- `transition-duration`
+    
+    트랜지션 효과를 몇 초 동안 실행할 것이지 지정합니다.
+    
+- `transition-delay`
+    
+    지정한 초 만큼 기다렸다가 실행할 때 사용합니다.
+    
+- `transition-timing-function`
+    
+    트랜지션이 시작하면서 끝날때의 타이밍! 즉 속도를 지정하는 것입니다.
+    
+    - `linear` : 트랜지션의 시작과 끝의 속도가 일정함
+    - `ease-in` : 천천히 시작했다가 완료될 때 속도가 증가합니다.
+    - `ease-out` : 빨리 시작했다가 완료될 때 속도가 낮아집니다.
+    - `transition`
+    
+    `transition` 단축속성으로 위 속성을 한꺼번에 표기할 수 있습니다.
+    
+    ```css
+    transition: all 2s ease-in;
+    
+    /* all은 대부분 생략해서 사용합니다. */
+    transition: 2s ease-in;
+    
+    /* 2s실행시간 1s지연시간 */
+    transition: 2s 1s ease-in;
+    ```
+
+## Animation
+
+CSS 스타일이 변화되는 중간지점을 `키프레임`이라고 합니다. 즉 `@keyframes`은 애니메이션의 중간 상태라고 할 수 있습니다.
+
+## keyframes 정의하기
+
+
+`@keyframes` 으로 애니메이션을 생성할 수 있습니다.
+
+- from(시작) ~ to(끝) 를 이용한 애니메이션 `shape` 생성
+    
+```css
+@keyframes shape {
+    from {
+        border: 1px solid transparent;
+    }
+    to {
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+}
+```
+
+## Animation 속성
+
+- `animation-name`
+    
+    애니메이션의 중간 상태를 지정하기 위한 이름을 정의합니다. 중간 상태는 `@keyframes` 규칙을 이용하여 기술합니다. 
+    
+    ```css
+    animation-name: shape;
+    
+    @keyframes shape {
+    ...
+    ```
+    
+- `animation-duration`
+    
+    한 싸이클의 애니메이션이 얼마에 걸쳐 일어날지 지정합니다.
+    
+- `animation-delay`
+    
+    엘리먼트가 로드되고 나서 언제 애니메이션이 시작될지 지정합니다.
+    
+- `animation-iteration-count`
+    
+    애니메이션이 몇 번 반복될지 지정합니다. `infinite` 로 지정하여 무한히 반복할 수 있습니다.
+    
+## 뷰포트(viewport)
+
+
+뷰포트란 웹 브라우저에서 실제 내용이 표시되는 영역입니다. 모바일 viewport와 PC의 viewport는 그 크기가 다릅니다. 그렇기 때문에 반응형 웹 에서는 viewport에 맞게 화면을 보여줘야 할 필요가 있습니다.
+
+### 메타 뷰포트 태그 지정하는 법
+
+`<meta name="viewport" content="속성1=값1, 속성2=값2 ......">`
+
+### 메타 뷰포트 태그 속성
+
+- `width` : 뷰포트 가로
+- `height` : 뷰포트 세로
+- `user-scalable` : 사용자 확대/축소 가능 여부 / no, yes
+- `initial-scale` : 초기 화면 비율
+- `maximum-scale` : 최대 화면 비율
+- `minimum-scale` : 최소 화면 비율
+
+### 일반적인 사용법
+    
+뷰포트의 너비를 디바이스(스마트폰) 화면 너비에 맞추고 초기화면 배율을 1로 지정
+
+`<meta name="viewport" content="width=device-width, initial-scale=1">`
+    
+### 뷰포트 단위
+
+- `vw`(viewport width): 뷰포트 너비. 100vw = 뷰포트 width 의 100%
+- `vh`(viewport height): 뷰포트 높이. 100vh = 뷰포트 height 의 100%
+- `vmin`(viewport minimum): 뷰포트의 너비와 높이 중에서 작은 값.
+- `vmax`(viewport maximum): 뷰포트의 너비와 높이 중에서 큰 값.
+    
+## 미디어 쿼리
+
+
+접속하는 디바이스나 뷰포트에 따라 특정 CSS 스타일을 사용하는 방법이다.
+
+### 미디어 쿼리 문법
+
+`@media` 키워드를 사용해 특정 미디어(디바이스)에서 어떤 CSS를 적용할 것인지 지정함. 이때 그 특정 구간을 `중단점(breakpoint)`이라고도 한다.
+    
+### 자주 사용하는 미디어쿼리 조건
+
+- `min-width` : 웹 뷰포트의 최소 너비
+- `max-width`: 웹 뷰포트의 최대 너비
+    
+```css
+    @media (min-width: 401px) and (max-width: 400px) {
+    body {
+    background-color:blue;
+        }
+    }
+```
