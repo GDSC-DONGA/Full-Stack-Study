@@ -531,3 +531,32 @@ CSS 스타일이 변화되는 중간지점을 `키프레임`이라고 합니다.
         }
     }
 ```
+
+## flexbox란?
+
+
+flexbox는 뷰포트나 요소의 크기가 불명확하거나 동적으로 변할 때에도 효율적으로 **HTML 요소를 배치, 정렬, 분산할 수 있는 방법을 제공하는 CSS3의 새로운 레이아웃 방식**이다.
+
+
+## flexbox 구성
+
+
+`flexbox`는 우리가 배치하고 싶은 HTML 요소인 `flex item`과 이것을 감싸고 있는 상위 부모 요소인 `flex container`로 구성된다.
+
+### flexbox 만들기
+
+
+```css
+/* 일반적으로 display: flex를 지정한다. */
+.flex-container {
+	display: flex;
+}
+```
+
+위 코드처럼 `display: flex` 속성이 적용된 요소는 flex container가 되고, flex container의 자식 요소는 flex item이 된다.
+
+## flexbox 주축
+
+
+flex item은 주축(main axis)에 따라 **정렬**된다.
+![image](https://user-images.githubusercontent.com/97269799/198953179-1ccbac23-3bc8-4893-8697-589b0b0d41ec.png)
