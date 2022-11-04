@@ -105,6 +105,7 @@ console.log('result: ', result); // result: 8
     - function 예약어를 생략할 수 있습니다.
     - 함수에 매개변수(Parameter)가 단 하나 뿐이라면 괄호(())도 생략할 수 있습니다.
     - 함수 바디가 표현식 하나라면 중괄호와 return 문도 생략할 수 있습니다.
+    - 일반 함수와는 달리 자신만의 this를 갖지 않습니다.
 
 ```javascript
 const f1 = function() { return "hello"; }
@@ -165,8 +166,69 @@ console.log('name' in person)  // true
 
 ```javascript
 const user {
-name : "Mike",
-sayHello : function() {
-console.log(`hello, I',m ${this.name}`);
+  name : "Mike",
+  sayHello : function() {
+  console.log(`hello, I',m ${this.name}`);
+  }
 }
-}
+```
+
+## 배열
+
+## 자주 사용하는 배열 API(프로퍼티, 메서드)
+
+- `**length` - 배열의 길이**
+    - 배열 길이 가져오기
+        
+        ```jsx
+        const fruits = ['사과', '바나나', '딸기'];
+        console.log('fruits.length: ', fruits.length); // 3
+        ```
+        
+- `**push` - 배열 끝에 항목 추가하기**
+    
+    ```jsx
+    const fruits = ['사과', '바나나', '딸기'];
+    fruits.push('포도');
+    fruits.push('오렌지');
+    console.log('fruits: ', fruits);
+    // ['사과', '바나나', '딸기', '포도', '오렌지']
+    ```
+    
+- **`forEach` - 배열의 항목을 순환하며 처리하기**
+    
+    ```jsx
+    const fruits = ['사과', '바나나', '딸기'];
+    fruits.forEach(function (item, index, array) {
+      console.log(item, index)
+    })
+    // 사과 0
+    // 바나나 1
+    // 딸기 2
+    ```
+    
+- `**pop` - 배열 끝에 항목 제거하기**
+    
+    ```jsx
+    const fruits = ['사과', '바나나', '딸기'];
+    fruits.pop();
+    console.log('fruits: ', fruits);   // ['사과', '바나나']
+    ```
+    
+- `**shift` - 배열 앞에 항목 제거하기**
+    
+    ```jsx
+    const fruits = ['사과', '바나나', '딸기'];
+    fruits.shift();
+    console.log('fruits: ', fruits);   // ['바나나', '딸기']
+    ```
+    
+- `**unshift` - 배열 앞에 항목 추가하기**
+    
+    ```jsx
+    const fruits = ['사과', '바나나', '딸기'];
+    fruits.unshift('포도');
+    fruits.unshift('오렌지');
+    console.log('fruits: ', fruits);
+    // ['오렌지', '포도', '사과', '바나나', '딸기']
+    ```
