@@ -159,3 +159,14 @@ console.log(superman[key])
 ```javascript
 console.log('name' in person)  // true
 ```
+
+
+## method
+
+```javascript
+const user {
+name : "Mike",
+sayHello : function() {
+console.log(`hello, I',m ${this.name}`);
+}
+}
