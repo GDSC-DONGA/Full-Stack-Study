@@ -44,6 +44,7 @@ function App() {
  {id:1, title:'html', body:'html is ...'},
  {id:2, title:'css', body:'css is ...'},
  {id:3, title:'javascript', body:'javascript is ...'}
+ ]
  return {
   <div>
    <Nav topics={topics}></Nav>
@@ -78,7 +79,52 @@ function App() {
  {id:1, title:'html', body:'html is ...'},
  {id:2, title:'css', body:'css is ...'},
  {id:3, title:'javascript', body:'javascript is ...'}
- return {
+ ]
+ return (
+  <div>
+   <Nav topics={topics} onChangeMode={(id)=>{
+    alert(id);
+   }}></Nav>
+)
+```
+
+- onChangeMode : 해당 태그의 함수 호출
+
+<h4>State</h4>
+
+```javascript
+function Nav(props){
+ const lis = []
+ for(let i=0; i<props.topics.length; i++){
+  let t = props.topics[i];
+  lis.push(<li key={t.id}>
+  <a id={t.id} href={'/read/'+t.id} onClick={event=>{
+  event.preventDefault();  //새로고침 방지
+  props.onChangeMode(Number(event.target.id)) ;
+  }}>{t.title}</a>
+  </li>)
+ }
+ return <nav>
+  <ol>
+   {lis}
+  </ol>
+ </nav>
+}
+function App() {
+ const _mode = useState('WELCOME');   
+ const mode = _mode[0];
+ const setMode = _mode[1];
+ const topics = [
+ {id:1, title:'html', body:'html is ...'},
+ {id:2, title:'css', body:'css is ...'},
+ {id:3, title:'javascript', body:'javascript is ...'}
+ ]
+ let content = null;
+ if(mode === 'WELCOME'){
+    content = <Article title="Welcome" body="Hello, WEB"></Article>
+  } else if(mode === 'READ'){
+    content = <Article title="Read" body="Hello, Read"></Article>
+ return (
   <div>
    <Nav topics={topics} onChangeMode={(id)=>{
     alert(id);
@@ -86,12 +132,64 @@ function App() {
 }
 ```
 
-
-<h4>State</h4>
-
+- function App() 은 한번밖에 실행되지 않음. 따라서 상태가 변할 때 마다 재실행하는 과정이 필요함
+- import {useState} from 'react'; 을 사용하면 state를 사용할 수 있음 
+- const _mode = useState('WELCOME'); _mode를 상태(state)로 선언함
+- useState의 리턴값은 배열이므로, _mode[0] = 'WELCOME' (값), _mode[1] = 상태 값을 변경하는데 사용하는 함수 
+```
+const [mode, setMode] = useState('WELCOME');
+``` 
+은 위에 코드에서 
+```
+const _mode = useState('WELCOME');   
+const mode = _mode[0];
+const setMode = _mode[1];
+``` 
+와 같은 말임
 <h4>Create</h4>
+```
+function Create(props){
+  return <article>
+    <h2>Create</h2>
+    <form onSubmit={event=>{
+      event.preventDefault();
+      const title = event.target.title.value;
+      const body = event.target.body.value;
+      props.onCreate(title, body);
+    }}>
+      <p><input type="text" name="title" placeholder="title"/></p>
+      <p><textarea name="body" placeholder="body"></textarea></p>
+      <p><input type="submit" value="Create"></input></p>
+    </form>
+  </article>
+}
+function App() {
+ const [nextId, setNextId] = useState(4);
+ const [topics, setTopics] = useState([
+    {id:1, title:'html', body:'html is ...'},
+    {id:2, title:'css', body:'css is ...'},
+    {id:3, title:'javascript', body:'javascript is ...'}
+ ]);
+ if(mode === 'CREATE') {
+  content = <Create onCreate={(_title, _body)=>{
+   const newTopic = {id:nextId, title:_title, body:_body}
+   const newTopics = [...topics]
+   newTopics.push(newTopic);
+   setTopics(newTopics);
+   setMode('READ');
+   setId(nextId);
+   setNextId(nextId+1);
+  }}></Create>
+ }
+``` 
 
+- placeholder -> 텍스트 필드의 hint 텍스트
+- const [value, setValue] = useState(Object); 일 경우, newValue = {...value}로 value값을 복제하여 newValue로 setValue를 수행한다. setValue(newValue);  
+- 
 <h4>Update</h4>
+``` 
+
+``` 
 
 <h4>Delete</h4>
 
