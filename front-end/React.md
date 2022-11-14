@@ -22,6 +22,7 @@ function App() {
    <Header></Header>
 }
 ```
+Header라는 컴포넌트를 생성해서 사용하는 예제이다. 컴포넌트는 리액트로 만들어진 앱을 이루는 최소한의 단위이다. 
 
 <h4>Props</h4>
 
