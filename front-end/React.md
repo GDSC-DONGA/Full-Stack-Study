@@ -147,7 +147,8 @@ const setMode = _mode[1];
 ``` 
 와 같은 말임
 <h4>Create</h4>
-```
+
+```javascript
 function Create(props){
   return <article>
     <h2>Create</h2>
@@ -184,16 +185,61 @@ function App() {
 ``` 
 
 - placeholder -> 텍스트 필드의 hint 텍스트
-- const [value, setValue] = useState(Object); 일 경우, newValue = {...value}로 value값을 복제하여 newValue로 setValue를 수행한다. setValue(newValue);  
-- 
-<h4>Update</h4>
+- const [value, setValue] = useState(Object); 일 경우, 
+newValue = {...value}로 value값을 복제하여 newValue로 setValue를 수행한다.
+```javascript
+const [value, setValue] = useState([1]); //array -> object(객체)
+newValue = {...value]  //value값을 복제
+newValue.push(2);
+setValue(newValue);  
 ``` 
 
+<h4>Update</h4>
+
+```javascript
+function Update(props){
+  const [title, setTitle] = useState(props.title);
+  const [body, setBody] = useState(props.body);
+  return <article>
+    <h2>Update</h2>
+    <form onSubmit={event=>{
+      event.preventDefault();
+      const title = event.target.title.value;
+      const body = event.target.body.value;
+      props.onUpdate(title, body);
+    }}>
+      <p><input type="text" name="title" placeholder="title" value={title} onChange={event=>{
+        setTitle(event.target.value);
+      }}/></p>
+      <p><textarea name="body" placeholder="body" value={body} onChange={event=>{
+        setBody(event.target.value);
+      }}></textarea></p>
+      <p><input type="submit" value="Update"></input></p>
+    </form>
+  </article>
+}
 ``` 
 
 <h4>Delete</h4>
 
-
+```javascript
+contextControl = <>
+ <li><a href={'/update/'+id} onClick={event=>{
+  event.preventDefault();
+  setMode('UPDATE');
+ }}>Update</a></li>
+ <li><input type="button" value="Delete" onClick={()=>{
+   const newTopics = []
+   for(let i=0; i<topics.length; i++){
+     if(topics[i].id !== id){
+       newTopics.push(topics[i]);
+     }
+   }
+   setTopics(newTopics);
+   setMode('WELCOME');
+  }} /></li>
+</>
+```
 
 
 
