@@ -12,9 +12,9 @@ serve -s build
 
 ```javascript
 function Header(){
- return <Header>
+ return <header>
   <h1><a href="/">React</a></h1>
- <Header>
+ </header>
 }
 function App() {
  return {
@@ -26,6 +26,33 @@ Header라는 컴포넌트를 생성해서 사용하는 예제이다. 컴포넌�
 
 <h4>Props</h4>
 
+```javascript
+function Nav(props){
+ const lis = []
+ for(let i=0; i<props.topics.length; i++){
+  let t = props.topics[i];
+  lis.push(<li key={t.id}><a href={'/read/'+t.id}>{t.title}</a></li>)
+ }
+ return <nav>
+  <ol>
+   {lis}
+  </ol>
+ </nav>
+}
+function App() {
+ const topics = [
+ {id:1, title:'html', body:'html is ...'},
+ {id:2, title:'css', body:'css is ...'},
+ {id:3, title:'javascript', body:'javascript is ...'}
+ return {
+  <div>
+   <Nav topics={topics}></Nav>
+}
+```
+
+- {변수명}으로 감싸면 변수를 태그 안에서 사용할 수 있다. 
+- 어떠한 값을 컴포넌트에게 전달해줘야 할 때, props 를 사용합니다.
+
 <h4>Event</h4>
 
 <h4>State</h4>
@@ -35,19 +62,6 @@ Header라는 컴포넌트를 생성해서 사용하는 예제이다. 컴포넌�
 <h4>Update</h4>
 
 <h4>Delete</h4>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
