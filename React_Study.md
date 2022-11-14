@@ -93,3 +93,26 @@ function App() {
   );
 }
 ```
+
+
+### 이벤트
+
+```js
+<Nav topics={topics} onChangeMode={(id)=>{
+        alert(id);
+      }}></Nav>
+      
+      
+      
+function Nav(props){
+  const lis = []
+  for(let i=0; i<props.topics.length; i++){
+    let t = props.topics[i];
+    lis.push(<li key={t.id}>
+      <a id={t.id} href={'/read/'+t.id} onClick={event=>{
+        event.preventDefault();  //창 열리지 않게 설정
+        props.onChangeMode(event.target.id);   //event.target : a태그  -> event.target.id = a태그의 아이디
+      }}>{t.title}</a>
+    </li>)
+  }
+```
