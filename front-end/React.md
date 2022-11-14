@@ -51,9 +51,41 @@ function App() {
 ```
 
 - {변수명}으로 감싸면 변수를 태그 안에서 사용할 수 있다. 
-- 어떠한 값을 컴포넌트에게 전달해줘야 할 때, props 를 사용합니다.
+- 어떠한 값을 컴포넌트에게 전달해줘야 할 때, props 를 사용한다.
 
 <h4>Event</h4>
+
+```javascript
+function Nav(props){
+ const lis = []
+ for(let i=0; i<props.topics.length; i++){
+  let t = props.topics[i];
+  lis.push(<li key={t.id}>
+  <a id={t.id} href={'/read/'+t.id} onClick={event=>{
+  event.preventDefault();  //새로고침 방지
+  props.onChangeMode(event.target.id);
+  }}>{t.title}</a>
+  </li>)
+ }
+ return <nav>
+  <ol>
+   {lis}
+  </ol>
+ </nav>
+}
+function App() {
+ const topics = [
+ {id:1, title:'html', body:'html is ...'},
+ {id:2, title:'css', body:'css is ...'},
+ {id:3, title:'javascript', body:'javascript is ...'}
+ return {
+  <div>
+   <Nav topics={topics} onChangeMode={(id)=>{
+    alert(id);
+   }}></Nav>
+}
+```
+
 
 <h4>State</h4>
 
