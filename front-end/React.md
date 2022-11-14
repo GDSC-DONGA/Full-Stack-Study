@@ -3,7 +3,25 @@
 
 1. index.js -> src 폴더에 포함되어 있다. 메인 프로그램이라고 할 수 있다. 여기에서 HTML 템플릿 및 JavaScript의 컴포넌트를 조합하여 렌더링하고 실제 표시한다.
 2. App.js -> src 폴더에 있다. 이것은 컴포넌트를 정의하는 프로그램이다. 실제로 화면에 표시되는 내용 등은 여기에서 정의된다.
-3. index.html -> public 폴더에 있다. 메인 프로그램인 index.js에 대응되는 것으로, HTML 템플릿 파일이다. 이 파일이 직접 표시되는 것은 아니고, index.js에 의해 일어 와서 렌더링된 결과가 표시된다. (index.html 이름을 바꿀시 오류발생)
+3. index.html -> public 폴더에 있다. 메인 프로그램인 index.js에 대응되는 것으로, HTML 템플릿 파일이다. 이 파일이 직접 표시되는 것은 아니고, index.js에 의해 일어 와서 렌더링된 결과가 표시된다. (index.html 이름을 바꿀시 오류발생
+<h4>빌드 명령어</h4>
+npm run build
+
+serve -s build
+<h4>컴포넌트</h4>
+
+```javascript
+function Header(){
+ return <Header>
+  <h1><a href="/">React</a></h1>
+ <Header>
+}
+function App() {
+ return {
+  <div>
+   <Header></Header>
+}
+```
 
 <h4>Props</h4>
 
