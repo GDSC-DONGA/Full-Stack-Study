@@ -138,7 +138,7 @@
   - 웹 접근성 향상
   - 가독성 향상  
     <br>
-- HTML Senamtic Elemnets
+- HTML Senamtic Element
   - `<header>` : 페이지에 대한 정보를 담음, 페이지 상단에 위치
   - `<nav>` : 네비게이션 링크, 구성된 섹선을 표현
   - `<aside>` : 주요 내용과는 직접적인 연관성은 없는 분리된 내용 담음
@@ -155,14 +155,14 @@
 
 ---
 
-## Inline VS Block Elemnet
+## Inline VS Block Element
 
 - div VS span
   - div 태그 : 박스 모양을 가짐 -> 영역태그, 컨테이너, display : block
   - span 태그 : 문장의 컨텐트 만큼만 차지함 -> 영역태그, 특정아이템, display : inline
 - block VS inline
   - block : 전체공간, 세로배치, width&height 적용O
-  - span : 콘텐츠만큼, 가로배치, width&height 적용X
+  - inline : 콘텐츠만큼, 가로배치, width&height 적용X
 - display 속성값
   - none : 보이지 않음
   - block : block 요소로 표시
